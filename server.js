@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const server = app.listen(3000);
+const server = app.listen(3300);
 const mongo = require("mongoose")
 const client = require("socket.io").listen(server).sockets;
 
