@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <title>MongoChat</title>
     <style>
-        #messages{height:300px; overflow: hidden;}
+        #messages{height:300px; overflow: auto;}
     </style>
 </head>
 <body>
@@ -59,7 +59,7 @@
                 }
             }
             // Connect to socket.io
-            var socket = io.connect('http://127.0.0.1:3300');
+            var socket = io.connect('http://10.203.0.113:3300');
             // Check for connection
             if(socket !== undefined){
                 console.log('Connected to socket...');
@@ -73,7 +73,8 @@
                             message.setAttribute('class', 'chat-message');
                             message.textContent = data[x].name+": "+data[x].message;
                             messages.appendChild(message);
-                            messages.insertBefore(message, messages.firstChild);
+                            messages.insertBefore(message, messages.lastChild);
+                            messages.scrollTo(0,messages.scrollHeight);
                         }
                     }
                 });
