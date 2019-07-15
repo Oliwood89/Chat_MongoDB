@@ -13,9 +13,18 @@ mongo.connect('mongodb+srv://vincent:wenzonG066@clusternode-rvzo5.mongodb.net/te
 let db = mongo.connection;
 app.use(express.static(__dirname + "/"))
 
+app.use(express.static(__dirname + "/"))
+
+
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
+
+app.get('/',function(req,res) {
+    res.sendFile(__dirname + '/style.css');
+    });
+
+app.use(express.static('public'));
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
@@ -46,6 +55,10 @@ db.on('open', () => {
             let name = data.name;
             let message = data.message;
             let date = data.date;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6ec475387f3feb4effd1ac366e47c0ca7a73e10d
             // Check for name and message
             if(name == '' || message == ''){
 
