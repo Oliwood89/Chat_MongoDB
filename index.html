@@ -17,6 +17,7 @@
                 <h1 class="text-center">
                     MongoChat 
                     <button id="clear" class="btn btn-danger">Clear</button>
+                    <button id="log">Login</button>
                 </h1>
                 <div id="status"></div>
                 <div id="chat">
@@ -35,31 +36,41 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+    <script src="client.js"></script>
+
+
 
     <script>
         (function(){
-            var element = function(id){
+            let element = function(id){
                 return document.getElementById(id);
             }
             // Get Elements
-            var status = element('status');
-            var messages = element('messages');
-            var textarea = element('textarea');
-            var username = element('username');
-            var clearBtn = element('clear');
+            const status = element('status');
+            const messages = element('messages');
+            const message = element('message');
+            const datuser = element('datuser');
+            const textarea = element('textarea');
+            const username = element('username');
+            const clearBtn = element('clear');
             // Set default status
-            var statusDefault = status.textContent;
-            var setStatus = function(s){
+            const statusDefault = status.textContent;
+            let setStatus = function(s){
                 // Set status
                 status.textContent = s;
                 if(s !== statusDefault){
-                    var delay = setTimeout(function(){
+                    let delay = setTimeout(function(){
                         setStatus(statusDefault);
                     }, 4000);
                 }
             }
             // Connect to socket.io
-            var socket = io.connect('http://10.203.0.113:3300');
+            const socket = io.connect('http://10.203.0.113:3300');
             // Check for connection
             if(socket !== undefined){
                 console.log('Connected to socket...');
@@ -67,12 +78,23 @@
                 socket.on('output', function(data){
                     //console.log(data);
                     if(data.length){
-                        for(var x = 0;x < data.length;x++){
+                        for(let x = 0;x < data.length;x++){
                             // Build out message div
-                            var message = document.createElement('div');
-                            message.setAttribute('class', 'chat-message');
-                            message.textContent = data[x].name+": "+data[x].message;
+
+                            let text = document.createElement('div');
+                            let datuser = document.createElement('div');
+                            let message = document.createElement('div');
+
+                            text.setAttribute('class', 'chat-message');
+                            datuser.setAttribute('class', 'chat-message');
+                            message.setAttribute('class', 'chatcontainer');
+                            text.innerHTML = data[x].message;
+                            datuser.innerHTML = data[x].date+" "+ data[x].name+" : ";
+
+                            message.appendChild(datuser);
+                            message.appendChild(text);
                             messages.appendChild(message);
+
                             messages.insertBefore(message, messages.lastChild);
                             messages.scrollTo(0,messages.scrollHeight);
                         }
@@ -93,7 +115,8 @@
                         // Emit to server input
                         socket.emit('input', {
                             name:username.value,
-                            message:textarea.value
+                            message:textarea.value,
+                            date: new Date().getHours()+":"+new Date().getMinutes()
                         });
                         event.preventDefault();
                     }
