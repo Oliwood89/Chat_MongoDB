@@ -12,9 +12,18 @@ mongo.connect('mongodb+srv://Oliwood89:password1234@cluster0-jmygr.mongodb.net/t
 
 let db = mongo.connection;
 
+app.use(express.static(__dirname + "/"))
+
+
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
+
+app.get('/',function(req,res) {
+    res.sendFile(__dirname + '/style.css');
+    });
+
+app.use(express.static('public'));
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
@@ -44,6 +53,7 @@ db.on('open', () => {
         socket.on('input', function(data){
             let name = data.name;
             let message = data.message;
+            let date = data.date;
 
             // Check for name and message
             if(name == '' || message == ''){
@@ -53,7 +63,7 @@ db.on('open', () => {
             } else {
 
                 // Insert message
-                chat.insert({name: name, message: message}, function(){
+                chat.insert({name: name, message: message, date:date}, function(){
                     client.emit('output', [data]);
 
                     // Send status object
