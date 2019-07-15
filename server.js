@@ -55,10 +55,6 @@ db.on('open', () => {
             let name = data.name;
             let message = data.message;
             let date = data.date;
-<<<<<<< HEAD
-=======
-
->>>>>>> 6ec475387f3feb4effd1ac366e47c0ca7a73e10d
             // Check for name and message
             if(name == '' || message == ''){
 

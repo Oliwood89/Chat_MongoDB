@@ -17,13 +17,13 @@ Simple chat app using sockets and MongoDB
 -[] Bonus : Use Firebase to connect to Github
 
 ## Process
-    We set on using a tutorial found on youtube as the video had a link to a Github repository. This way we could save some time by directly taking the code from the repo and adapting it to our needs. 
+We set on using a tutorial found on youtube as the video had a link to a Github repository. This way we could save some time by directly taking the code from the repo and adapting it to our needs. 
 
-    Connecting to mongoDB via Mongoose prooved a bit difficult but manageable once we became more accustomed to the mongoDB GUI.
+Connecting to mongoDB via Mongoose prooved a bit difficult but manageable once we became more accustomed to the mongoDB GUI.
 
-    Displaying the timestamp was also a difficulty as the new Date() method had to be launched every time message was sent to the server and the value had to be saved on said server so it would not change with each refresh of the page.
+Displaying the timestamp was also a difficulty as the new Date() method had to be launched every time message was sent to the server and the value had to be saved on said server so it would not change with each refresh of the page.
 
-    Lastly connecting to Firebase and getting users infos was also a challenge since it was also a new architecture to learn for us.
+Lastly connecting to Firebase and getting users infos was also a challenge since it was also a new architecture to learn for us.
 
 ## Members of the team
 - Anthony Vandermissen
