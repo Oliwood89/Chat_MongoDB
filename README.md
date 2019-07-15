@@ -12,9 +12,9 @@ Simple chat app using sockets and MongoDB
 -[x] Messages display in ascending order from the more recent message at the bottom to the oldest at the top
 -[x]  Simple but effective UX design
 
--[] Bonus : Use MVC Structure 
+-[0] Bonus : Use MVC Structure 
 
--[] Bonus : Use Firebase to connect to Github
+-[0] Bonus : Use Firebase to connect to Github
 
 ## Process
 We set on using a tutorial found on youtube as the video had a link to a Github repository. This way we could save some time by directly taking the code from the repo and adapting it to our needs. 
