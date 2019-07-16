@@ -6,7 +6,8 @@
   const status = element('status');
   const messages = element('messages');
   const textarea = element('textarea');
-  const username = element('username');  
+  let username = element('username'); 
+
   const clearBtn = element('clear');
   // Set default status
   const statusDefault = status.textContent;
@@ -82,49 +83,52 @@
 })();
 
 var firebaseConfig = {
-  apiKey: "AIzaSyAYwh1xpl-z3PwqufvBJt_sqwcf30O3MJk",
-  authDomain: "mongochat-f3306.firebaseapp.com",
-  databaseURL: "https://mongochat-f3306.firebaseio.com",
-  projectId: "mongochat-f3306",
-  storageBucket: "",
-  messagingSenderId: "673903107835",
-  appId: "1:673903107835:web:952b573ac4ee9604"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-function login() {
-  let provider = new firebase.auth.GithubAuthProvider();
-
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-  let token = result.credential.accessToken;
-  let user = result.user;
-
-  console.log(user);
-  }).catch(function(error) {
-  let errorMessage = error.message;
-  console.log(errorMessage);
-
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-      var displayName = user.displayName;
-      var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      var providerData = user.providerData;
-      console.log(displayName);
-      username.value = displayName;
-      // ...
-    } else {
-      // User is signed out.
-      // ...
-    }
-  });
-
-  });
-
-}   
-$('#log').on ('click', login);
+    apiKey: "AIzaSyAYwh1xpl-z3PwqufvBJt_sqwcf30O3MJk",
+    authDomain: "mongochat-f3306.firebaseapp.com",
+    databaseURL: "https://mongochat-f3306.firebaseio.com",
+    projectId: "mongochat-f3306",
+    storageBucket: "",
+    messagingSenderId: "673903107835",
+    appId: "1:673903107835:web:952b573ac4ee9604"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  function login() {
+    let provider = new firebase.auth.GithubAuthProvider();
+  
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+    let token = result.credential.accessToken;
+    let user = result.user;
+  
+    console.log(user);
+    }).catch(function(error) {
+    let errorMessage = error.message;
+    console.log(errorMessage);
+  
+      });
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+  
+        console.log(displayName);
+        username.value = displayName;
+        // ...
+      } else {
+        // User is signed out.
+        // ...
+      }
+  
+    });
+  
+  
+  
+  }   
+  $('#log').on ('click', login);
