@@ -10,11 +10,12 @@ Simple chat app using sockets and MongoDB
 -[x] Message history is displayed to all
 
 -[x] Messages display in ascending order from the more recent message at the bottom to the oldest at the top
+
 -[x]  Simple but effective UX design
 
--[0] Bonus : Use MVC Structure 
+-[x] Bonus : Use MVC Structure 
 
--[0] Bonus : Use Firebase to connect to Github
+-[x] Bonus : Use Firebase to connect to Github
 
 ## Process
 We set on using a tutorial found on youtube as the video had a link to a Github repository. This way we could save some time by directly taking the code from the repo and adapting it to our needs. 
@@ -23,7 +24,7 @@ Connecting to mongoDB via Mongoose prooved a bit difficult but manageable once w
 
 Displaying the timestamp was also a difficulty as the new Date() method had to be launched every time message was sent to the server and the value had to be saved on said server so it would not change with each refresh of the page.
 
-Lastly connecting to Firebase and getting users infos was also a challenge since it was also a new architecture to learn for us.
+Lastly connecting to Firebase and getting users info was also a challenge since it was a new architecture for us to learn and several auth bugs dragged on the process. However we overcame the problems and finished the exercice.
 
 ## Members of the team
 - Anthony Vandermissen

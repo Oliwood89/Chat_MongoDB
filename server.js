@@ -13,8 +13,6 @@ mongo.connect('mongodb+srv://vincent:wenzonG066@clusternode-rvzo5.mongodb.net/te
 let db = mongo.connection;
 app.use(express.static(__dirname + "/"))
 
-app.use(express.static(__dirname + "/"))
-
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
