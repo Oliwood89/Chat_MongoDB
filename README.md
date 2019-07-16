@@ -26,8 +26,10 @@ Displaying the timestamp was also a difficulty as the new Date() method had to b
 
 Lastly connecting to Firebase and getting users info was also a challenge since it was a new architecture for us to learn and several auth bugs dragged on the process. However we overcame the problems and finished the exercice.
 
+BUG : There's a known bug we didn't take the time to fix. When a message is sent in the chat, the text area where the message was written should clear itself automatically. At 
+random intervals, it won't. The only course of action is to close the web page and relaunch the server. It may fix the issue but most of the time this bug will be present.
 ## Members of the team
-- Anthony Vandermissen
+- Anthony Vandersmissen
 - Olivier Loriaux
 - Vincent De Gheyndt
 
