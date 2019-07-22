@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
-const server = app.listen(3400);
+const server = app.listen(process.env.port || 3000);
 const mongo = require("mongoose")
 const client = require("socket.io").listen(server).sockets;
 
 //connect to mongo
 
-mongo.connect('mongodb+srv://vincent:wenzonG066@clusternode-rvzo5.mongodb.net/test?retryWrites=true&w=majority', {
-    useNewUrlParser: true
+mongo.connect('mongodb+srv://Oliwood89:password1234@cluster0-jmygr.mongodb.net/test?retryWrites=true&w=majority', {
+useNewUrlParser: true
 });
 
 let db = mongo.connection;
