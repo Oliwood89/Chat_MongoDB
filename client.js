@@ -21,7 +21,7 @@
         }
     }
     // Connect to socket.io
-    const socket = io.connect('http://10.203.0.148:3400');
+    const socket = io();
     // Check for connection
     if (socket !== undefined) {
         console.log('Connected to socket...');
