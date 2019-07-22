@@ -21,7 +21,7 @@
         }
     }
     // Connect to socket.io
-    const socket = io.connect('https://chatbecode1.herokuapp.com');
+    const socket = io();
     // Check for connection
     if (socket !== undefined) {
         console.log('Connected to socket...');
