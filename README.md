@@ -38,3 +38,7 @@ We would like to thank **Cleo Buck** and **Corentin De Block** for their help re
 ### Video Tutorial
 The link to the first part of the video tutorial :
 https://www.youtube.com/watch?v=8Y6mWhcdSUM
+
+### Our chat
+
+https://chatbecode1.herokuapp.com/
